@@ -1,2 +1,2 @@
 #./gradlew.bat clean install
-./gradlew.bat bintrayUpload
+./gradlew.bat bintrayUpload --stacktrace

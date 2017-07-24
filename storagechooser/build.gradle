@@ -1,14 +1,16 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion project.COMPILE_SDK
+    buildToolsVersion project.BUILD_TOOL
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 26
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.TARGET_SDK
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {
@@ -24,19 +26,31 @@ dependencies {
     compile 'com.android.support:design:26.0.0-alpha1'
 }
 
-task javadoc(type: Javadoc) {
-    failOnError  true
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.compile
+ext {
+    bintrayRepo = 'StorageChooser'
+    bintrayName = 'StorageChooser'
+    orgName = 'boomsya'
+
+    publishedGroupId = 'com.github.boomsya'
+    libraryName = 'StorageChooser'
+    artifact = 'storagechooser'
+
+    libraryDescription = 'StorageChooser'
+
+    siteUrl = 'https://github.com/boomsya/-StorageChooser'
+    gitUrl = 'https://github.com/boomsya/-StorageChooser.git'
+
+    libraryVersion = rootProject.ext.libraryVersion
+
+    developerId = 'boomsya'
+    developerName = 'boomsya'
+    developerEmail = 'boomsya@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
 
-// build a jar with javadoc
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
 
-artifacts {
-    archives javadocJar
-}
+apply from: rootProject.file('gradle/install-v1.gradle')
+apply from: rootProject.file('gradle/bintray-android-v1.gradle')
