@@ -27,7 +27,7 @@ dependencies {
 }
 
 ext {
-    bintrayRepo = 'StorageChooser'
+    bintrayRepo = 'SmartWizard'
     bintrayName = 'StorageChooser'
     orgName = 'boomsya'
 
