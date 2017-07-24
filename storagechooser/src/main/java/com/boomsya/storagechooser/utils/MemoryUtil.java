@@ -22,7 +22,6 @@ public class MemoryUtil {
 
     /**
      * Returns an the number of the files inside '/storage' directory
-     * @return
      */
     public int getStorageListSize() {
         File storageDir = new File("/storage");

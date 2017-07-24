@@ -86,15 +86,7 @@ public class StorageChooser {
     private static Dialog getStorageChooserDialog(Activity activity) {
         return new Dialog(activity, R.style.DialogTheme);
     }
-    /**
-     * @class Builder
-     *  - as the name suggests it gets all the configurations provided by the developer and
-     *    passes them to the StorageChooser class using the constructor.
-     *
-     *    NOTE: The dialog is still not yet show even though the builder instance is present.
-     *    show() is called seperately on the builder because it does not return a builder but
-     *    triggers init() inside the StorageChooser class.
-     */
+    
     public static class Builder {
 
         private Activity mActivity;

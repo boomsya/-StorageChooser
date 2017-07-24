@@ -33,7 +33,6 @@ public class FileUtil {
     /**
      * Removes non-operationaal directories which are either used by only the system or
      * not used by anyone
-     * @return
      */
     public void removeNonOperational(List<File> volumeList) {
         // segregate the list
